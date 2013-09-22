@@ -23,4 +23,5 @@ Feel free to provide comments
 LICENSE
 =======
 
-Apache v2
+MIT
+
