@@ -9,8 +9,19 @@ gem install bornin
 
 use
 ===
-require 'bornin' <br/>
-bornin 'join' # => join : ...... born in Array as an instance method 
+require 'bornin' <br/><br/>
+bornin 'p' <br/>
+bornin 'puts' <br/>
+bornin 'class_eval' <br/>
+bornin 'module_eval' <br/>
+bornin 'instance_eval' <br/>
+bornin 'join' <br/><br/>
+bornin 'p', String <br/>
+bornin 'puts', String <br/>
+bornin 'class_eval', String <br/>
+bornin 'module_eval', String <br/>
+bornin 'instance_eval', String <br/>
+bornin 'join', Array
 
 comments
 ========
