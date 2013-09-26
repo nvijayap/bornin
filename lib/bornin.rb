@@ -15,7 +15,16 @@
 #
 # bornin method - spots the class/module where the method was born
 #
-def bornin _method, _class=[Fixnum,Float,String,Array,Hash,Range,Regexp]
+def bornin _method, _class=[
+	Fixnum,
+	Float,
+	String,
+	Array,
+	Hash,
+	Range,
+	Regexp,
+	Math
+]
 
   # the patten to grep for
   re = Regexp.new '^' + _method.to_s + '$'
