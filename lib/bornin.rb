@@ -3,9 +3,9 @@
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-
+#
 # http://www.apache.org/licenses/LICENSE-2.0
-
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,36 +15,41 @@
 #
 # bornin method - spots the class/module where the method was born
 #
-def bornin _method, _class=[
-	Fixnum,
-	Float,
-	String,
-	Array,
-	Hash,
-	Range,
-	Regexp,
-	Math
+def bornin _method, _class = [
+  Fixnum,
+  Float,
+  String,
+  Array,
+  Hash,
+  Range,
+  Regexp,
+  Math
 ]
-
-  # the patten to grep for
-  re = Regexp.new '^' + _method.to_s + '$'
 
   # to colorize output
   require 'colorize'
+
+  # Check
+  if _method==nil
+    return puts "=> please pass first arg as a string".red
+  end
+
+  # the patten to grep for
+  re = Regexp.new '^' + _method.to_s + '$'
 
   # born in BasicObject?
   if BasicObject.instance_methods(false).grep(re).size==1
     return puts "=> #{_method} : " +
       ". born in BasicObject as an instance method".green
-  # born in Kernel?
+    # born in Kernel?
   elsif Kernel.instance_methods(false).grep(re).size==1
     return puts "=> #{_method} : " +
       ".. born in Kernel as an instance method".green
-  # born in Object?
+    # born in Object?
   elsif Object.instance_methods(false).grep(re).size==1
     return puts "=> #{_method} : " +
       "... born in Object as an instance method".green
-  # born in Module?
+    # born in Module?
   elsif Module.instance_methods(false).grep(re).size==1
     return puts "=> #{_method} : " +
       ".... born in Module as an instance method".green
